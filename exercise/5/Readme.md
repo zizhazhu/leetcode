@@ -14,3 +14,10 @@ Example 2:
 Input: "cbbd"
 
 Output: "bb"
+
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        
+    }
+};
