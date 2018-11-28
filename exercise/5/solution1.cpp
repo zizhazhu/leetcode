@@ -12,7 +12,7 @@ public:
 			for (int j = 1; i - j >= 0 && i + j < p_s.length(); j++) {
 				if (p_s[i-j] != p_s[i+j]) {
 					break;
-				} else {
+				} else if {
 					if (max_length < j) {
 						max_length = j;
 						index = i;
