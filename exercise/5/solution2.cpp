@@ -1,6 +1,9 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
+        if (s.length() == 0) {
+            return "";
+        }
         vector<vector<int>> f(s.length(), vector<int>(s.length(), 0));
 		int max_length = 0, left = 0;
 		for (int i = 0; i < s.length(); i++) {
