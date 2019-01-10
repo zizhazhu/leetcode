@@ -6,7 +6,7 @@ class Solution:
         """
         is_palind = [[False for __ in range(len(s))] for _ in range(len(s))]
         max_length = 1
-        left, right = 0, 0
+        left = 0
         for i in range(len(s)):
             j = i
             # from j to i(include j and i)
@@ -16,6 +16,5 @@ class Solution:
                     if i - j + 1 > max_length:
                         max_length = i - j + 1
                         left = j
-                        right = i
                 j -= 1
-        return s[left:right+1]
+        return s[left:left+max_length]
