@@ -1,11 +1,7 @@
 class Solution:
-    def longestPalindrome(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
-        s_trans = s[0]
-        for i in range(1, len(s)):
+    def longestPalindrome(self, s: str) -> str:
+        s_trans = '#'
+        for i in range(0, len(s)):
             s_trans += s[i]
             s_trans += '#'
         length = [0 for _ in range(len(s_trans))]

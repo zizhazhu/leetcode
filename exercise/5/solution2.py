@@ -1,9 +1,5 @@
 class Solution:
-    def longestPalindrome(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
+    def longestPalindrome(self, s: str) -> str:
         is_palind = [[False for __ in range(len(s))] for _ in range(len(s))]
         max_length = 1
         left = 0
