@@ -13,7 +13,7 @@ class Solution:
             if i >= right:
                 length[i] = 0
             else:
-                length[i] = min(right - i, longest[2 * center - i])
+                length[i] = min(right - i, length[2 * center - i])
             while i - length[i] - 1 >= 0 and i + length[i] + 1 < len(s_trans):
                 if s_trans[i - length[i] - 1] == s_trans[i + length[i] + 1]:
                     length[i] += 1
