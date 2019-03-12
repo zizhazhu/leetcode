@@ -5,8 +5,8 @@ class Solution:
             s_trans += s[i]
             s_trans += '#'
         length = [0 for _ in range(len(s_trans))]
-        max_length = 1
-        max_mid = 1
+        max_length = 0
+        max_mid = 0
         center = 0
         right = 0
         for i in range(1, len(s_trans)):
