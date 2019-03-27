@@ -9,7 +9,7 @@ public:
         int m = nums1.size(), n = nums2.size();
         int left = 0, right = m;
         while (left <= right) {
-            int i = left + (right - left) >> 1;
+            int i = left + ((right - left) >> 1);
             int j = ((m + n + 1) >> 1) - i;
             if ((i == 0 || nums1[i-1] <= nums2[j]) && (i == m || nums1[i] >= nums2[j-1])) {
                 int median_left, median_right;
