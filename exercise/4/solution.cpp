@@ -32,9 +32,9 @@ public:
                 } else {
                     return (median_left + median_right) / 2.0;
                 }
-            } else if (nums1[i-1] > nums2[j]) {
+            } else if (i > 0 && nums1[i-1] > nums2[j]) {
                 right = i - 1;
-            } else if (nums1[i] < nums2[j]) {
+            } else if (nums1[i] < nums2[j-1]) {
                 left = i + 1;
             }
         }
