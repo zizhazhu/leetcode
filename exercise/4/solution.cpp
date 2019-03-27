@@ -20,6 +20,9 @@ public:
                 } else {
                     median_left = max(nums1[i-1], nums2[j-1]);
                 }
+                if ((m + n) & 1) {
+                    return median_left;
+                }
                 if (j == n) {
                     median_right = nums1[i];
                 } else if (i == m) {
@@ -27,11 +30,7 @@ public:
                 } else {
                     median_right = min(nums1[i], nums2[j]);
                 }
-                if ((m + n) & 1) {
-                    return median_left;
-                } else {
-                    return (median_left + median_right) / 2.0;
-                }
+                return (median_left + median_right) / 2.0;
             } else if (i > 0 && nums1[i-1] > nums2[j]) {
                 right = i - 1;
             } else if (nums1[i] < nums2[j-1]) {
