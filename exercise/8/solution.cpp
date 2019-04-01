@@ -20,6 +20,7 @@ public:
                         state = 1;
                     } else if (str[pos] >= '0' && str[pos] <= '9') {
                         num = str[pos] - '0';
+                        state = 1;
                     } else {
                         state = 2;
                     }
