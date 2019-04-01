@@ -14,15 +14,21 @@ public:
                     if (str[pos] == ' ') {
                         ;
                     } else if (str[pos] == '+') {
-                        state = 1;
+                        state = 3;
                     } else if (str[pos] == '-') {
                         sign = -1;
-                        state = 1;
+                        state = 3;
                     } else if (str[pos] >= '0' && str[pos] <= '9') {
                         num = str[pos] - '0';
                         state = 1;
                     } else {
                         state = 2;
+                    }
+                    break;
+                case 3:
+                    if (str[pos] >= '0' && str[pos] <= '9') {
+                        num = str[pos] - '0';
+                        state= 1;
                     }
                     break;
                 case 1:
@@ -48,6 +54,7 @@ public:
                     } else {
                         state = 2;
                     }
+                    break;
                 case 2:
                     if (overflow == 1) {
                         if (sign == 1) {
