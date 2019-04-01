@@ -6,6 +6,9 @@ public:
         }
         int state = 0, pos = 0, sign = 1, num = 0, overflow = 0;
         while (true) {
+            if (pos == str.length()) {
+                state = 2;
+            }
             switch (state) {
                 case 0:
                     if (str[pos] == ' ') {
