@@ -1,11 +1,11 @@
 class Solution {
 public:
     string intToRoman(int num) {
-        string roman = 'IVXLCDM';
+        string roman = "IVXLCDM";
         string result;
         int tnum = num, pos = 0;
         while (tnum) {
-            string delta = '';
+            string delta = "";
             int digit = tnum % 10;
             tnum /= 10;
             switch (digit) {
