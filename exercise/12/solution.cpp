@@ -10,7 +10,7 @@ public:
             tnum /= 10;
             switch (digit) {
                 case 9:
-                    delta += roman[pos] + roman[pos+2];
+                    delta = "" + roman[pos] + roman[pos+2];
                     break;
                 case 8:
                     delta += roman[pos];
@@ -22,7 +22,7 @@ public:
                     delta = roman[pos+1] + delta;
                     break;
                 case 4:
-                    delta += roman[pos] + roman[pos+1];
+                    delta = "" + roman[pos] + roman[pos+1];
                     break;
                 case 3:
                     delta += roman[pos];
