@@ -11,21 +11,15 @@ public:
             if (pos < strs[0].length()) {
                 now = strs[0][pos];
             } else {
-                break;
+                return result;
             }
-            bool flag = false;
             for (int i = 1; i < strs.size(); i++) {
                 if (pos < strs[i].length() && now == strs[i][pos]) {
                     continue;
                 }
-                flag = true;
-                break;
+                return result;
             }
-            if (flag) {
-                break;
-            } else {
-                result += now;
-            }
+            result += now;
             pos++;
         }
         return result;
