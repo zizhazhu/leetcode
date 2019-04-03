@@ -26,6 +26,7 @@ public:
             } else {
                 result += now;
             }
+            pos++;
         }
         return result;
     }
