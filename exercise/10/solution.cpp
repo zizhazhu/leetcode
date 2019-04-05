@@ -11,7 +11,9 @@ public:
         while (pos <= s.length()) {
             switch (state) {
                 case 0:
-                    if (step >= p.length()) {
+                    if (step == p.length() && pos == s.length()) {
+                        return true;
+                    } else if (step == p.length()) {
                         return false;
                     }
                     now = p[step];
