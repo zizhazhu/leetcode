@@ -12,7 +12,7 @@ public:
         for (int i = 0; i < nums.size(); i++) {
             vector<pair<int, int>> &target = two_sum[-nums[i]];
             for (int j = 0; j < target.size(); j++) {
-                if (target[j].first != i && target[j].second != j) {
+                if (target[j].first > i && target[j].second > j) {
                     vector<int> now;
                     now.push_back(nums[i]);
                     now.push_back(nums[target[j].first]);
