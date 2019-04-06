@@ -1,9 +1,16 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
         map<int, vector<pair<int, int>>> two_sum;
         for (int i = 0; i < nums.size(); i++) {
+            if (i > 0 && nums[i] == nums[i-1]) {
+                continue;
+            }
             for (int j = i + 1; j < nums.size(); j++) {
+                if (j > i + 1 && nums[j] == nums[j-1]) {
+                    continue;
+                }
                 int sum = nums[i] + nums[j];
                 two_sum[sum].push_back(make_pair(i, j));
             }
