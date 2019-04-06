@@ -22,7 +22,7 @@ public:
                 }
             }
         }
-        vector<int>::iterator iter = unique(result.begin(), result.end());
+        vector<vector<int>>::iterator iter = unique(result.begin(), result.end());
         result.erase(iter, result.end());
         return result;
     }
