@@ -11,6 +11,9 @@ public:
         }
         vector<vector<int>> result;
         for (int i = 0; i < nums.size(); i++) {
+            if (i > 0 && nums[i] == nums[i-1]) {
+                continue;
+            }
             vector<pair<int, int>> &target = two_sum[-nums[i]];
             for (int j = 0; j < target.size(); j++) {
                 if (target[j].first > i && target[j].second > i) {
