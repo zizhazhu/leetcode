@@ -4,7 +4,7 @@ class Solution:
             nums1, nums2 = nums2, nums1
         m, n = len(nums1), len(nums2)
         left, right = 0, m
-        while left < right:
+        while left <= right:
             i = (left + right + 1) // 2
             j = (m + n + 1) // 2 - i
             if (i == 0 or nums1[i-1] <= nums2[j]) and (i == m or nums1[i] >= nums2[j-1]):
