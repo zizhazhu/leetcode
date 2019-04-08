@@ -14,8 +14,9 @@ class Solution:
                     mid_left = nums1[i-1]
                 else:
                     mid_left = max(nums1[i-1], nums2[j-1])
-                if i == m and i != 0:
-                    mid_right = nums2[j]
+                if i == m:
+                    if j != n:
+                        mid_right = nums2[j]
                 elif j == n:
                     mid_right = nums1[i]
                 else:
