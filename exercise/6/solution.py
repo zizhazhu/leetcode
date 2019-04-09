@@ -6,7 +6,7 @@ class Solution:
         result = ""
         for i in range(0, len(s), gap):
             result += s[i]
-        for i in range(1, numRows):
+        for i in range(1, numRows - 1):
             for j in range(i, len(s), gap):
                 result += s[j]
                 if j + gap - 2 * i < len(s):
