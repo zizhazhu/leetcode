@@ -24,10 +24,10 @@ public:
                     } else {
                         right--;
                     }
-                    while (left < right && nums[left] == nums[left+1]) {
+                    while (left < right && nums[left] == nums[left-1]) {
                         left++;
                     }
-                    while (left < right && nums[right] == nums[right-1]) {
+                    while (left < right && nums[right] == nums[right+1]) {
                         right--;
                     }
                 }
