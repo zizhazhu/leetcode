@@ -16,13 +16,13 @@ public:
         for (int i = 0; i < n; i++) {
             pri = &((*pri)->next);
         }
-        while ((*pri)->next) {
+        while (*pri) {
             now = &(*now)->next;
             pri = &(*pri)->next;
         }
-        ListNode *temp = (*pri)->next;
-        (*pri)->next = (*pri)->next->next;
-        delete *temp;
+        ListNode *temp = *now;
+        *now = (*now)->next;
+        delete temp;
         return head;
     }
 };
