@@ -31,5 +31,5 @@ class Solution:
                 else:
                     state = 2
             elif state == 2:
-                return num
-        return num
+                return sign * num
+        return sign * num
