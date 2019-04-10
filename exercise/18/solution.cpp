@@ -6,10 +6,10 @@ public:
             return result;
         }
         sort(nums.begin(), nums.end());
-        for (int i = 0; i < nums.size() - 4; i++) {
+        for (int i = 0; i < nums.size() - 3; i++) {
             if (i > 0 && nums[i] == nums[i-1])
                 continue;
-            for (int j = i + 1; j < nums.size() - 3; j++) {
+            for (int j = i + 1; j < nums.size() - 2; j++) {
                 if (j > i + 1 && nums[j] == nums[j-1])
                     continue;
                 int left = j + 1, right = nums.size() - 1;
