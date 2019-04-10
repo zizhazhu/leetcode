@@ -6,8 +6,13 @@ public:
             return result;
         }
         sort(nums.begin(), nums.end());
-        for (int i = 0; i < nums.size() - 3; i++) {
+        int n = nums.size();
+        for (int i = 0; i < n - 3; i++) {
             if (i > 0 && nums[i] == nums[i-1])
+                continue;
+            if (nums[i] + nums[i+1] + nums[i+2] + nums[i+3] > target)
+                break;
+            if (nums[i] + nums[n-3] + nums[n-2] + nums[n-1] < target)
                 continue;
             for (int j = i + 1; j < nums.size() - 2; j++) {
                 if (j > i + 1 && nums[j] == nums[j-1])
