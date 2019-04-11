@@ -32,6 +32,10 @@ public:
                 return false;
             }
         }
-        return true;
+        if (bracket.empty()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 };
