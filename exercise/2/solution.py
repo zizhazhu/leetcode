@@ -12,7 +12,7 @@ class Solution:
         while l1 and l2:
             c = l1.val + l2.val + carry
             now.next = ListNode(c % 10)
-            carry = c / 10
+            carry = c // 10
             now = now.next
             l1 = l1.next
             l2 = l2.next
@@ -23,7 +23,7 @@ class Solution:
         while l:
             c = l.val + carry
             now.next = ListNode(c % 10)
-            carry = c / 10
+            carry = c // 10
             now = now.next
             l = l.next
         if carry > 0:
