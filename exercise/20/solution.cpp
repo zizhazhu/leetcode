@@ -8,24 +8,28 @@ public:
         for (int i = 0; i < s.length(); i++) {
             if (s[i] == '(' || s[i] == '[' || s[i] == '{') {
                 bracket.push(s[i]);
-            } else if (s[i] == ')') {
-                if (bracket.top() == '(') {
-                    bracket.pop();
-                } else {
-                    return false;
+            } else if (!bracket.empty()) {
+                if (s[i] == ')') {
+                    if (bracket.top() == '(') {
+                        bracket.pop();
+                    } else {
+                        return false;
+                    }
+                } else if (s[i] == ']') {
+                    if (bracket.top() == '[') {
+                        bracket.pop();
+                    } else {
+                        return false;
+                    }
+                } else if (s[i] == '}') {
+                    if (bracket.top() == '{') {
+                        bracket.pop();
+                    } else {
+                        return false;
+                    }
                 }
-            } else if (s[i] == ']') {
-                if (bracket.top() == '[') {
-                    bracket.pop();
-                } else {
-                    return false;
-                }
-            } else if (s[i] == '}') {
-                if (bracket.top() == '{') {
-                    bracket.pop();
-                } else {
-                    return false;
-                }
+            } else {
+                return false;
             }
         }
         return true;
