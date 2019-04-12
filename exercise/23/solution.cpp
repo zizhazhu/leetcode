@@ -21,10 +21,9 @@ public:
                 if (lists[i]) {
                     exist = true;
                     if (lists[i]->val == last) {
-                        tail->next = lists[i];
-                        lists[i] = lists[i]->next;
-                        tail = tail->next;
-                        tail->next = NULL;
+                        min = last;
+                        no = i;
+                        break;
                     } else {
                         if (lists[i]->val < min) {
                             min = lists[i]->val;
