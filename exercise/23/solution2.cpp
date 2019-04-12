@@ -21,6 +21,7 @@ public:
         while (!q.empty()) {
             ListNode *first = q.top().second;
             tail->next = first;
+            tail = tail->next;
             q.pop();
             if (first->next) {
                 q.push(make_pair(first->next->val, first->next));
