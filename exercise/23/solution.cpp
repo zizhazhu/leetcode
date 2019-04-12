@@ -10,8 +10,8 @@ class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         // a fake head
-        ListNode *head = ListNode(0);
-        ListNode *tail = head;
+        ListNode head(0);
+        ListNode *tail = &head;
         int last = -2147483648;
         bool exist = true;
         while (exist) {
@@ -41,6 +41,6 @@ public:
                 last = min;
             }
         }
-        return head->next;
+        return head.next;
     }
 };
