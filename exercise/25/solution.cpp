@@ -14,6 +14,7 @@ public:
         }
         ListNode fake = ListNode(0);
         ListNode *point = &fake;
+        point->next = head;
         while (true) {
             ListNode *last = point, *first;
             bool done = false;
