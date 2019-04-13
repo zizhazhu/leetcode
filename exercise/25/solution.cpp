@@ -28,8 +28,8 @@ public:
             }
             if (done)
                 break;
+            last = point->next;
             for (int i = 0; i < k - 1; i++) {
-                last = point->next;
                 first = last->next;
                 last->next = first->next;
                 first->next = point->next;
