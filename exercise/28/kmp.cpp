@@ -8,7 +8,7 @@ public:
         }
         int m = haystack.length(), n = needle.length();
         int i = 0, j = -1;
-        vector<int> next(n);
+        vector<int> next(n + 1);
         next[0] = -1;
         while (i < n) {
             if (j == -1 || needle[i] == needle[j]) {
