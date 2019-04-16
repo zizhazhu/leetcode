@@ -10,24 +10,36 @@ public:
         if (total_length > s.length()) {
             return result;
         }
+        // count all the words in words
         unordered_map<string, int> words_all;
         for (int j = 0; j < words.size(); j++) {
             words_all[words[j]]++;
         }
-        for (int i = 0; i + total_length <= s.length(); i++) {
-            unordered_map<string, int> words_part;
-            bool all = true;
-            for (int j = 0; i + j * length < i + total_length; j++) {
-                string part = s.substr(i + j * length, length);
-                if (words_part[part] < words_all[part]) {
-                    words_part[part]++;
-                } else {
-                    all = false;
-                    break;
+        // emumerate the offset
+        for (int i = 0; i < length; i++) {
+            unordered_map<string, int> words_now;
+            int head = i, tail = i;
+            while (head + total_length <= s.length() && tail + length <= s.length()) {
+                string word = s.substr(tail, length);
+                if (words_all.find(word) == words_all.end()) {
+                    head = tail = tail + length;
+                    words_now.clear();
+                    continue;
                 }
-            }
-            if (all) {
-                result.push_back(i);
+                words_now[word]++;
+                tail += length;
+                if (words_now[word] <= words_all[word]) {
+                    if ((tail - head) / length == words.size()) {
+                        result.push_back(head);
+                        words_now[s.substr(head, length)]--;
+                        head += length;
+                    }
+                } else {
+                    while (words_now[word] > words_all[word]) {
+                        words_now[s.substr(head, length)]--;
+                        head += length;
+                    }
+                }
             }
         }
         return result;
