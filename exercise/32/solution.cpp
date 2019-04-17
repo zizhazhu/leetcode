@@ -8,8 +8,8 @@ public:
                 if (i > 0 && s[i-1] == '(') {
                     valid[i] = 2;
                 } else if (i > 0 && valid[i-1] > 0) {
-                    int pair = i - valid[i-1];
-                    if (s[pair] == '(') {
+                    int pair = i - valid[i-1] - 1;
+                    if (pair >= 0 && s[pair] == '(') {
                         valid[i] = valid[i-1] + 2;
                     }
                 }
