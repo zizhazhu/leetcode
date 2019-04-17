@@ -20,13 +20,14 @@ public:
             if (nums[i] < nums[i+1]) {
                 int j = i + 1;
                 for (; j < nums.size(); j++) {
-                    if (nums[j] < nums[i])
+                    if (nums[j] <= nums[i])
                         break;
                 }
                 swap(nums, i, j - 1);
                 reverse(nums, i + 1, nums.size() - 1);
-                break;
+                return;
             }
         }
+        reverse(nums, 0, nums.size() - 1);
     }
 };
