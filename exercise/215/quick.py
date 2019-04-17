@@ -3,17 +3,17 @@ class Solution:
         mid = nums[end]
         left = begin
         for i in range(begin, end):
-            if nums[i] > end:
+            if nums[i] > mid:
                 nums[i], nums[left] = nums[left], nums[i]
                 left += 1
-        nums[end], nums[left] = nums[left], nums[mid]
+        nums[end], nums[left] = nums[left], nums[end]
         if left == k:
             return nums[left]
         elif left < k:
-            quick(nums, k, left + 1, end)
+            self.quick(nums, k, left + 1, end)
         else:
-            quick(nums, k , begin, left - 1)
+            self.quick(nums, k , begin, left - 1)
 
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        return quick(nums, k - 1, 0, len(nums) - 1)
+        return self.quick(nums, k - 1, 0, len(nums) - 1)
 
