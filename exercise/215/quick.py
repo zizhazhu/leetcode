@@ -10,9 +10,9 @@ class Solution:
         if left == k:
             return nums[left]
         elif left < k:
-            self.quick(nums, k, left + 1, end)
+            return self.quick(nums, k, left + 1, end)
         else:
-            self.quick(nums, k , begin, left - 1)
+            return self.quick(nums, k , begin, left - 1)
 
     def findKthLargest(self, nums: List[int], k: int) -> int:
         return self.quick(nums, k - 1, 0, len(nums) - 1)
