@@ -31,6 +31,7 @@ public:
             if (node->right)
                 fifo.push(make_pair(node->right, now.second + 1));
         }
+        result.push_back(level_result);
         return result;
     }
 };
