@@ -7,7 +7,7 @@ public:
         }
 
         queue<pair<string, int>> fifo;
-        fifo.push(make_pair(beginWord, 0));
+        fifo.push(make_pair(beginWord, 1));
         reached[beginWord] = 1;
 
         while (!fifo.empty()) {
