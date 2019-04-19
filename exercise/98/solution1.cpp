@@ -12,7 +12,8 @@ public:
     bool isValidBST(TreeNode* root) {
         stack<pair<TreeNode*, int>> nodes;
         nodes.push(make_pair(root, 0));
-        int value = INT_MIN;
+        int value;
+        bool not_use = true;
         while (!nodes.empty()) {
             pair<TreeNode*, int> now = nodes.top();
             nodes.pop();
@@ -22,10 +23,12 @@ public:
                 nodes.push(make_pair(node, 1));
                 nodes.push(make_pair(node->left, 0));
             } else if (now.second == 1) {
-                if (node->val <= value)
-                    return false;
-                else
+                if (not_use || node->val > value) {
                     value = node->val;
+                    not_use = false;
+                } else {
+                    return false;
+                }
                 nodes.push(make_pair(node->right, 0));
             }
         }
