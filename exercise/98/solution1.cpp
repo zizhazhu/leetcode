@@ -18,10 +18,10 @@ public:
             nodes.pop();
             TreeNode *node = now.first;
             if (!node) continue;
-            if (now->second == 0) {
+            if (now.second == 0) {
                 nodes.push(make_pair(node, 1));
                 nodes.push(make_pair(node->left, 0));
-            } else if (now->second == 1) {
+            } else if (now.second == 1) {
                 if (node->val <= value)
                     return false;
                 else
