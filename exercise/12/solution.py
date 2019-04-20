@@ -5,16 +5,16 @@ class Solution:
         i = 0
         while num > 0:
             digit = num % 10
-            num /= 10
+            num //= 10
             now = ""
             if digit == 9:
-                now = roman[i+2] + roman[i]
+                now = roman[i] + roman[i+2]
             elif digit >= 5:
                 now = roman[i+1]
                 for j in range(5, digit):
                     now += roman[i]
             elif digit == 4:
-                now = roman[i+1] + roman[i]
+                now = roman[i] + roman[i+1]
             else:
                 for j in range(0, digit):
                     now += roman[i]
