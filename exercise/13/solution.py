@@ -9,4 +9,5 @@ class Solution:
                 result -= now
             else:
                 result += now
+            last = now
         return result
