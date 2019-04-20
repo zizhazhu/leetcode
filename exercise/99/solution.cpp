@@ -15,36 +15,29 @@ public:
         while (cur) {
             if (!cur->left) {
                 if (pre && cur->val < pre->val) {
-                    if (first)
-                        second = cur;
-                    else {
+                    if (!first)
                         first = pre;
-                        second = cur;
-                    }
+                    second = cur;
                 }
                 pre = cur;
                 cur = cur->right;
                 continue;
             }
-            pre = cur->left;
-            while (pre->right && pre->right != cur) {
-                pre = pre->right;
+            TreeNode *pre_pre = cur->left;
+            while (pre_pre->right && pre_pre->right != cur) {
+                pre_pre = pre_pre->right;
             }
-            if (pre->right == cur) {
-                pre->right = NULL;
+            if (pre_pre->right == cur) {
+                pre_pre->right = NULL;
                 if (pre && cur->val < pre->val) {
-                    if (first)
-                        second = cur;
-                    else {
+                    if (!first)
                         first = pre;
-                        second = cur;
-                    }
+                    second = cur;
                 }
                 pre = cur;
                 cur = cur->right;
             } else {
-                pre->right = cur;
-                pre = cur;
+                pre_pre->right = cur;
                 cur = cur->left;
             }
         }
