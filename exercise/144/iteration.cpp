@@ -21,6 +21,6 @@ public:
             nodes.push(now->right);
             nodes.push(now->left);
         }
-        returen result;
+        return result;
     }
 };
