@@ -18,7 +18,8 @@ public:
             nodes.pop();
             if (!now) continue;
             result.push_back(now->val);
-            nodes.push(now->right, now->left);
+            nodes.push(now->right);
+            nodes.push(now->left);
         }
         returen result;
     }
