@@ -1,6 +1,9 @@
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
+        if (nums.size() == 0) {
+            return vector<int>{-1, -1};
+        }
         int target_l = -1, target_r = -1;
         int left = 0, right = nums.size() - 1;
         while (left < right) {
@@ -27,7 +30,7 @@ public:
                 right = mid - 1;
             }
         }
-        if (nums[left] == target) {
+        if (nums[right] == target) {
             target_r = left;
         }
         return vector<int>{target_l, target_r};
