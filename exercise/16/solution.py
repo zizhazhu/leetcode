@@ -15,6 +15,6 @@ class Solution:
                 elif temp - target > 0:
                     right -= 1
                 else:
-                    return 0
+                    return temp
         return closest
 
