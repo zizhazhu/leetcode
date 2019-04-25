@@ -1,7 +1,7 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         if len(s) == 0:
-            return False
+            return True
         mapping = {'(': ')', '[': ']', '{': '}'}
         stack = []
         for c in s:
