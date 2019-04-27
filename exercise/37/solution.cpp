@@ -10,15 +10,24 @@ public:
 
     bool solve(vector<vector<char>>& board, int i, int j, vector<unordered_set<int>> &row, vector<unordered_set<int>> &col, vector<unordered_set<int>> &block) {
         if (i == 9) return true;
-        if (j == 9) return solve(board, i + 1, 0, row, col, block);
-        if (board[i][j] != '.') return solve(board, i, j + 1, row, col, block);
+        if (board[i][j] != '.') {
+            if (j == 8)
+                return solve(board, i + 1, 0, row, col, block);
+            else
+                return solve(board, i, j + 1, row, col, block);
+        }
         for (int d = 1; d <= 9; d++) {
             if (check(row, col, block, i, j, d)) {
                 board[i][j] = d + '0';
                 row[i].insert(d);
                 col[j].insert(d);
                 block[i / 3 * 3 + j / 3].insert(d);
-                if (solve(board, i, j + 1, row, col, block)) return true;
+                if (j == 8) {
+                    if (solve(board, i + 1, 0, row, col, block)) return true;
+                }
+                else {
+                    if (solve(board, i, j + 1, row, col, block)) return true;
+                }
                 board[i][j] = '.';
                 row[i].erase(d);
                 col[j].erase(d);
