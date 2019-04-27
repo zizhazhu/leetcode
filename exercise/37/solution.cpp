@@ -10,8 +10,8 @@ public:
 
     bool solve(vector<vector<char>>& board, int i, int j, vector<set<int>> &row, vector<set<int>> &col, vector<set<int>> &block) {
         if (i == 9) return true;
-        if (j == 9) return solve(board, i + 1, j, row, col, block);
-        if (board[i][j] == '.') return solve(board, i, j + 1, row, col, block);
+        if (j == 9) return solve(board, i + 1, 0, row, col, block);
+        if (board[i][j] != '.') return solve(board, i, j + 1, row, col, block);
         for (int d = 1; d <= 9; d++) {
             if (check(row, col, block, i, j, d)) {
                 board[i][j] = d + '0';
