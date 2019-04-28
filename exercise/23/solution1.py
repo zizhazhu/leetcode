@@ -23,6 +23,8 @@ class Solution:
         return head.next
 
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+        if len(lists) == 0:
+            return None
         gap = 1
         while gap < len(lists):
             for i in range(0, len(lists) - gap, gap * 2):
