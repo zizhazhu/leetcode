@@ -16,9 +16,12 @@ public:
         }
     }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<int> candidates_dup(candidates);
+        sort(candidates_dup.begin(), candidates_dup.end());
+        candidates_dup.erase(unique(candidates_dup.begin(), candidates_dup.end()), candidates_dup.end());
         vector<vector<int>> result;
         vector<int> now;
-        dfs(candidates, 0, target, result, now);
+        dfs(candidates_dup, 0, target, result, now);
         return result;
     }
 };
