@@ -25,7 +25,7 @@ class Solution:
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:
         gap = 1
         while gap < len(lists):
-            for i in range(len(lists), gap * 2):
+            for i in range(0, len(lists) - gap, gap * 2):
                 lists[i] = self.mergeTwoLists(lists[i], lists[i+gap])
             gap *= 2
         return lists[0]
