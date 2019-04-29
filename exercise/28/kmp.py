@@ -9,7 +9,7 @@ class Solution:
         move = [0 for _ in range(n + 1)]
         move[0] = -1
         i, j = 0, -1
-        while i <= n and j <= n:
+        while i < n:
             if j == -1 or needle[i] == needle[j]:
                 i += 1
                 j += 1
