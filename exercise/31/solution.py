@@ -15,7 +15,7 @@ class Solution:
             if nums[i] < nums[i+1]:
                 now = i
                 break
-        next_num = now + 1
+        next_num = len(nums) - 1
         if now > 0:
             for i in range(now + 1, len(nums)):
                 if nums[i] < nums[now]:
