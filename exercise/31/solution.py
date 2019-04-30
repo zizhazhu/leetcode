@@ -1,8 +1,8 @@
 class Solution:
     def reverseNums(self, nums: List[int], left: int, right: int):
-        end = left + (right - left) // 2
-        for i in range(left, end):
-            nums[i], nums[right-i-1] = nums[right-i-1], nums[i]
+        end = (right - left) // 2
+        for i in range(end):
+            nums[left+i], nums[right-i-1] = nums[right-i-1], nums[left+i]
 
     def nextPermutation(self, nums: List[int]) -> None:
         """
@@ -16,7 +16,7 @@ class Solution:
                 now = i
                 break
         next_num = len(nums) - 1
-        if now > 0:
+        if now >= 0:
             for i in range(now + 1, len(nums)):
                 if nums[i] < nums[now]:
                     next_num = i - 1
