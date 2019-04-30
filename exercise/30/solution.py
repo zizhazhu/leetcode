@@ -25,7 +25,7 @@ class Solution:
                     else:
                         counts[now_word] += 1
                     while head < j and counts[now_word] > all_counts[now_word]:
-                        all_counts[s[head:head+length]] -= 1
+                        counts[s[head:head+length]] -= 1
                         head += length
                     if (j - head) // length == n - 1:
                         result.append(head)
