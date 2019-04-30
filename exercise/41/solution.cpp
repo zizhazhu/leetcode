@@ -8,10 +8,10 @@ public:
 
     int firstMissingPositive(vector<int>& nums) {
         for (int i = 0; i < nums.size(); i++) {
-            if (nums[i] <= 0 || nums[i] > nums.size() || nums[i] == i + 1)
+            if (nums[i] <= 0 || nums[i] > nums.size() || nums[nums[i] - 1] == nums[i])
                 continue;
             swap(nums, i, nums[i] - 1);
-            if (nums[i] != i+1) i--;
+            i--;
         }
         for (int i = 0; i < nums.size(); i++) {
             if (nums[i] != i + 1)
