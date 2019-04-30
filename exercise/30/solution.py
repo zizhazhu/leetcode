@@ -17,13 +17,14 @@ class Solution:
             for j in range(i, len(s)-length+1, length):
                 now_word = s[j:j+length]
                 if now_word not in all_counts:
+                    head = j + length
                     counts.clear()
                 else:
                     if now_word not in counts:
                         counts[now_word] = 1
                     else:
                         counts[now_word] += 1
-                    while counts[now_word] > all_counts[now_word]:
+                    while head < j and counts[now_word] > all_counts[now_word]:
                         all_counts[s[head:head+length]] -= 1
                         head += length
                     if (j - head) // length == n:
