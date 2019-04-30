@@ -18,7 +18,8 @@ class Solution:
         next_num = len(nums) - 1
         if now >= 0:
             for i in range(now + 1, len(nums)):
-                if nums[i] < nums[now]:
+                if nums[i] <= nums[now]:
                     next_num = i - 1
+                    break
             nums[now], nums[next_num] = nums[next_num], nums[now]
         self.reverseNums(nums, now + 1, len(nums))
