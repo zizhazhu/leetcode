@@ -13,7 +13,7 @@ class Solution:
                 all_counts[words[i]] = 1
         for i in range(length):
             counts = {}
-            head = 0
+            head = i
             for j in range(i, len(s)-length+1, length):
                 now_word = s[j:j+length]
                 if now_word not in all_counts:
