@@ -16,7 +16,7 @@ public:
             result[i+1] += result[i] / 10;
             result[i] %= 10;
         }
-        while (result.size() > 0 && result[result.size() - 1] == 0) {
+        while (result.size() > 1 && result[result.size() - 1] == 0) {
             result.pop_back();
         }
         string result_str;
