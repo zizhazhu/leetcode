@@ -8,6 +8,9 @@ public:
                 if (i > 0 && match[i-1][j-1] && (s[i-1] == p[j-1] || p[j-1] == '?' || p[j-1] == '*')) {
                     match[i][j] = true;
                 }
+                if (i > 0 && match[i-1][j] && p[j-1] == '*') {
+                    match[i][j] = true;
+                }
                 if (match[i][j-1] && p[j-1] == '*') {
                     match[i][j] = true;
                 }
