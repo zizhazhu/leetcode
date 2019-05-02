@@ -10,6 +10,6 @@ class Solution:
                     valid[i] = valid[i-1] - 1
                 if valid[i] > 0 and valid[valid[i] - 1] >= 0:
                     valid[i] = valid[valid[i] - 1]
-            if valid[i] >= 0 and i - valid[i] > result:
-                result = i - valid[i]
+            if valid[i] >= 0 and i - valid[i] + 1> result:
+                result = i - valid[i] + 1
         return result
