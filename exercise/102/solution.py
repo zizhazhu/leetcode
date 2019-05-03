@@ -20,8 +20,8 @@ class Solution:
                     result.append(now)
                     now = []
                 now.append(node[0].val)
-                queue.append(node[0].left)
-                queue.append(node[0].right)
+                queue.append((node[0].left, node[1] + 1))
+                queue.append((node[0].right, node[1] + 1))
         if len(now) > 0:
             result.append(now)
         return result
