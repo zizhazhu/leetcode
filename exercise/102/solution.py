@@ -19,6 +19,7 @@ class Solution:
                 if node[1] > now_level:
                     result.append(now)
                     now = []
+                    now_level += 1
                 now.append(node[0].val)
                 queue.append((node[0].left, node[1] + 1))
                 queue.append((node[0].right, node[1] + 1))
