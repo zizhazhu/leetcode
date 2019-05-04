@@ -2,8 +2,8 @@ class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
         if endWord not in wordList:
             return 0
-        wordList.remove(endWord)
         wordSet = set(wordList)
+        wordSet.remove(endWord)
         now_queue = [beginWord]
         back_queue = [endWord]
         layer = 2
@@ -22,6 +22,7 @@ class Solution:
                             wordSet.remove(new_word)
             if len(next_queue) > len(back_queue):
                 now_queue = back_queue
+                back_queue = next_queue
             else:
                 now_queue = next_queue
             layer += 1
