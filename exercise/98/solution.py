@@ -20,7 +20,7 @@ class Solution:
                 now = now.right
                 continue
             pre = now.left
-            while pre.right and pre.right == now:
+            while pre.right and pre.right != now:
                 pre = pre.right
             if not pre.right:
                 pre.right = now
