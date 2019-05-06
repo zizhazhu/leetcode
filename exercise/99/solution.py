@@ -6,7 +6,7 @@
 #         self.right = None
 
 class Solution:
-    def update(self, root: TreeNode, first: TreeNode, second: TreeNode, last: TreeNode) -> bool:
+    def update(self, root: TreeNode, last:TreeNode, first: TreeNode, second: TreeNode) -> bool:
         if last and root.val < last.val:
             if first:
                 second = root
