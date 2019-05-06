@@ -16,19 +16,15 @@ class Solution:
 
         def update() -> bool:
             nonlocal last, first, second
-            if last and root.val < last.val:
-                if first:
-                    second = root
-                    return True
-                else:
-                    first, second = last, root
-            last = root
             return False
 
         while root:
             if root.left is None:
-                if update():
-                    break
+                if last and root.val < last.val:
+                    if first is None:
+                        first = last
+                    second = root
+                last = root
                 root = root.right
                 continue
             pre = root.left
@@ -36,8 +32,11 @@ class Solution:
                 pre = pre.right
             if pre.right:
                 pre.right = None
-                if update():
-                    break
+                if last and root.val < last.val:
+                    if first is None:
+                        first = last
+                    second = root
+                last = root
                 root = root.right
             else:
                 pre.right = root
