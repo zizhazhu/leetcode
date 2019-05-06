@@ -21,7 +21,7 @@ public:
                 col.insert(i);
                 left_up.insert(x-i);
                 left_down.insert(x+i);
-                findNQueens(result, axis, col, left_up, left_down, n + 1);
+                findNQueens(result, axis, col, left_up, left_down, n);
                 col.erase(i);
                 left_up.erase(x-i);
                 left_down.erase(x+i);
