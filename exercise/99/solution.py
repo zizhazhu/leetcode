@@ -6,15 +6,6 @@
 #         self.right = None
 
 class Solution:
-    def update(self, root: TreeNode, last:TreeNode, first: TreeNode, second: TreeNode) -> bool:
-        if last and root.val < last.val:
-            if first:
-                second = root
-                return True
-            else:
-                first, second = last, root
-        last = root
-        return False
 
     def recoverTree(self, root: TreeNode) -> None:
         """
@@ -22,9 +13,21 @@ class Solution:
         """
         last = None
         first, second = None, None
+
+        def update() -> bool:
+            nonlocal last, first, second
+            if last and root.val < last.val:
+                if first:
+                    second = root
+                    return True
+                else:
+                    first, second = last, root
+            last = root
+            return False
+
         while root:
             if root.left is None:
-                if self.update(root, last, first, second):
+                if update():
                     break
                 root = root.right
                 continue
@@ -33,7 +36,7 @@ class Solution:
                 pre = pre.right
             if pre.right:
                 pre.right = None
-                if self.update(root, last, first, second):
+                if update():
                     break
                 root = root.right
             else:
