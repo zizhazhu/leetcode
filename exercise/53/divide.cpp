@@ -12,6 +12,7 @@ public:
         mx = max({left_mx, right_mx, left_right + right_left});
         left = max(left_left, left_sum + right_left);
         right = max(right_right, left_right + right_sum);
+        sum = left_sum + right_sum;
         }
     }
     int maxSubArray(vector<int>& nums) {
