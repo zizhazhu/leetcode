@@ -29,6 +29,7 @@ class Solution:
                         output_p = output_p.right
                     result.append(pre.val)
                     self.reverseResult(result, now, len(result))
+                p = p.right
                 else:
                     pre.right = p
                     p = p.left
