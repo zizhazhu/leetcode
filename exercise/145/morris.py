@@ -11,8 +11,10 @@ class Solution:
             result[begin+i], result[end-1-i] = result[end-i-1], result[begin+i]
 
     def postorderTraversal(self, root: TreeNode) -> List[int]:
+        fake = TreeNode(0)
+        fake.left = root
         result = []
-        p = root
+        p = fake
         while p:
             if p.left is None:
                 p = p.right
@@ -29,7 +31,7 @@ class Solution:
                         output_p = output_p.right
                     result.append(pre.val)
                     self.reverseResult(result, now, len(result))
-                p = p.right
+                    p = p.right
                 else:
                     pre.right = p
                     p = p.left
