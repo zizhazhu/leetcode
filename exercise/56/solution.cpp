@@ -25,6 +25,7 @@ public:
                 }
             }
         }
+        if (!now.empty()) result.push_back(now);
         return result;
     }
 };
