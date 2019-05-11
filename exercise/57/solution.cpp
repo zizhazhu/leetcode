@@ -3,7 +3,7 @@ public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
         vector<vector<int>> result;
         int state = 0;
-        int begin = 0, end = 0;
+        int begin = newInterval[0];
         for (int i = 0; i < intervals.size(); i++) {
             switch (state) {
                 case 0:
@@ -34,7 +34,7 @@ public:
                     result.push_back(intervals[i]);
             }
         }
-        if (state == 0 || state == 2) result.push_back(newInterval);
+        if (state == 0 || state == 1) result.push_back({begin, newInterval[1]});
         return result;
     }
 };
