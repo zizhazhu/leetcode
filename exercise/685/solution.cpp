@@ -20,6 +20,7 @@ struct UnionSet {
 class Solution {
 public:
     vector<int> findRedundantDirectedConnection(vector<vector<int>>& edges) {
+        int result = -1;
         int n = edges.size();
         int redundant_node = -1;
         bool first = false;
@@ -30,7 +31,7 @@ public:
                 redundant_node = b;
             } else if (union_set.equal(a, b)) {
                 if (redundant_node == -1) {
-                    return edges[i];
+                    result = i;
                 } else {
                     first = true;
                     break;
@@ -39,10 +40,14 @@ public:
                 union_set.insert(a, b);
             }
         }
-        for (int i = 0; i < n; i++) {
-            if (edges[i][1] == redundant_node) {
-                if (first) return edges[i];
-                else first = true;
+        if (redundant_node == -1) {
+            return edges[result];
+        } else {
+            for (int i = 0; i < n; i++) {
+                if (edges[i][1] == redundant_node) {
+                    if (first) return edges[i];
+                    else first = true;
+                }
             }
         }
         return vector<int>();
