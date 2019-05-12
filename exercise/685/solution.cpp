@@ -21,13 +21,30 @@ class Solution {
 public:
     vector<int> findRedundantDirectedConnection(vector<vector<int>>& edges) {
         int n = edges.size();
+        int redundant_node = -1;
+        bool first = false;
         UnionSet union_set;
         for (int i = 0; i < n; i++) {
             int a = edges[i][0], b = edges[i][1];
-            if (union_set.equal(a, b)) {
-                return edges[i];
+            if (union_set.root(b) != b) {
+                redundant_node = b;
+            } else if (union_set.equal(a, b)) {
+                if (i == edges.size() - 1) {
+                    return edges[i];
+                } else if (redundant_node != -1) {
+                    first = true;
+                    break;
+                } else {
+                    first = true;
+                }
             } else {
                 union_set.insert(a, b);
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            if (edges[i][1] == redundant_node) {
+                if (first) return edges[i];
+                else first = true;
             }
         }
         return vector<int>();
