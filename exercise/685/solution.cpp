@@ -29,13 +29,11 @@ public:
             if (union_set.root(b) != b) {
                 redundant_node = b;
             } else if (union_set.equal(a, b)) {
-                if (i == edges.size() - 1) {
+                if (redundant_node == -1) {
                     return edges[i];
-                } else if (redundant_node != -1) {
-                    first = true;
-                    break;
                 } else {
                     first = true;
+                    break;
                 }
             } else {
                 union_set.insert(a, b);
