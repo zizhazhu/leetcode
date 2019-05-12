@@ -31,6 +31,7 @@ public:
                 redundant_node = b;
             } else if (union_set.equal(a, b)) {
                 if (redundant_node == -1) {
+                    first = true;
                     result = i;
                 } else {
                     first = true;
