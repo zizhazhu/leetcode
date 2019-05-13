@@ -1,9 +1,10 @@
 class NumArray {
 public:
     vector<int> seg;
+    int align_n;
 
     void update(int i, int val) {
-        int k = i + n - 1;
+        int k = i + align_n - 1;
         seg[k] = val;
         while (k > 0) {
             k = (k - 1) >> 1;
@@ -14,7 +15,7 @@ public:
     NumArray(vector<int>& nums) {
         if (nums.empty()) return;
         int n = nums.size() - 1;
-        int align_n = 1;
+        align_n = 1;
         while (n > 0) {
             n >>= 1;
             align_n <<= 1;
@@ -35,7 +36,7 @@ public:
     }
     
     int sumRange(int i, int j) {
-        return sumRangePart(i, j, 0, 0, seg.size() >> 1);
+        return sumRangePart(i, j, 0, 0, align_n - 1);
     }
 };
 
