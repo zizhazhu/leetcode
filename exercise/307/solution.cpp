@@ -30,7 +30,7 @@ public:
     int sumRangePart(int i, int j, int node, int l, int r) {
         if (node >= seg.size()) return 0;
         if (j < l || r < i) return 0;
-        if (l <= i && j <= r) return seg[node];
+        if (i <= l && j >= r) return seg[node];
         return sumRangePart(i, j, (node << 1) + 1, l, (l + r) >> 1) + \
             sumRangePart(i, j, (node << 1) + 2, ((l + r) >> 1) + 1, r);
     }
