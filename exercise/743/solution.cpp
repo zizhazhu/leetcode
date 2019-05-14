@@ -22,7 +22,7 @@ public:
             queue.pop();
             if (reached.count(now.second) != 0)
                 continue;
-            result[now.second] = now.first;
+            result[now.second] = -now.first;
             reached.insert(now.second);
             for (const pair<int, int> &it: edges[now.second]) {
                 if (reached.count(it.first) != 0)
