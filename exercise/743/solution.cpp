@@ -8,7 +8,7 @@ public:
     }
 
     int dijkstra(int s) {
-        vector<int> result(edges.size());
+        int result = 0;
         priority_queue<pair<int, int>> queue;
         unordered_set<int> reached;
         queue.push(make_pair(0, s));
@@ -22,7 +22,9 @@ public:
             queue.pop();
             if (reached.count(now.second) != 0)
                 continue;
-            result[now.second] = -now.first;
+            if (-now.first > result) {
+                result = -now.first;
+            }
             reached.insert(now.second);
             for (const pair<int, int> &it: edges[now.second]) {
                 if (reached.count(it.first) != 0)
@@ -31,10 +33,8 @@ public:
                     queue.push(make_pair(-(-now.first + it.second), it.first));
             }
         }
-        int sum = 0;
-        for (int i = 1; i < result.size(); i++)
-            sum += result[i];
-        return sum;
+        if (result == 1000000) return -1;
+        else return result;
     }
 };
 
