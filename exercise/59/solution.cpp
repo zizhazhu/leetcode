@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> generateMatrix(int n) {
-        vector<vector<int>> result;
+        vector<vector<int>> result(n, vector<int>(n));
         int way[][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
         int now = 1, index_x = 0, index_y = 0, direction = 0;
         int all = n * n;
