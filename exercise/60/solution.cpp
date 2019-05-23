@@ -4,7 +4,7 @@ public:
         string result;
         vector<bool> used(n+1);
         int base = 1;
-        for (i = 2; i <= n; i++)
+        for (int i = 2; i <= n; i++)
             base *= i;
         int res = k - 1;
         while (result.length() < n) {
