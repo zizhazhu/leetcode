@@ -7,7 +7,7 @@ public:
         if (n == 0) return 0;
         if (obstacleGrid[0][0] == 1 || obstacleGrid[m-1][n-1] == 1)
             return 0;
-        vector<int> counts(n, 0);
+        vector<long long> counts(n, 0);
         counts[0] = 1;
         for (unsigned i = 0; i < m; i++) {
             if (obstacleGrid[i][0] == 1) counts[0] = 0;
