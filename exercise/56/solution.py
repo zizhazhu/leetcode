@@ -1,7 +1,9 @@
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        intervals_sorted = sorted(intervals)
         result = []
+        if len(intervals) == 0:
+            return result
+        intervals_sorted = sorted(intervals)
         begin, end = -1, -1
         for interval in intervals_sorted:
             if interval[0] > end:
