@@ -38,7 +38,9 @@ class Solution:
                 union_set.add(a, b)
         if critical == -1:
             return [circle_end, circle_father]
-        if union_set.find(father_removed) == critical:
+        if father_kept != -1 and union_set.same(father_kept, father_removed):
+            return [father_removed, critical]
+        if father_kept != -1 and union_set.find(father_removed) == critical:
             return [father_removed, critical]
         for edge in edges:
             if edge[1] == critical:
