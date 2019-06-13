@@ -17,31 +17,27 @@ class Solution:
     def findRedundantDirectedConnection(self, edges: List[List[int]]) -> List[int]:
         union_set = UnionSet(len(edges))
         critical = -1
-        father_kept, father_removed = -1, -1
+        father_removed = -1, -1
         circle_father, circle_end = -1, -1
         for edge in edges:
             a, b = edge[0], edge[1]
             if union_set.find(a) == b:
+                circle_father = b
                 if critical != -1:
                     break
                 else:
-                    circle_father, circle_end = b, a
+                    circle_end = a
             if union_set.find(b) != b:
                 critical = b
                 if circle_father != -1:
                     break
-                if union_set.same(a, b):
-                    return [a, b]
-                father_kept = union_set.find(b)
                 father_removed = a
             else:
                 union_set.add(a, b)
         if critical == -1:
             return [circle_end, circle_father]
-        if father_kept != -1 and union_set.same(father_kept, father_removed):
-            return [father_removed, critical]
-        if father_kept != -1 and union_set.find(father_removed) == critical:
-            return [father_removed, critical]
-        for edge in edges:
-            if edge[1] == critical:
-                return [edge[0], edge[1]]
+        if circle_father != -1:
+            for edge in edges:
+                if edge[1] == critical:
+                    return [edge[0], edge[1]]
+        return [father_removed, critical]
