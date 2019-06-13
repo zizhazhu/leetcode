@@ -18,14 +18,14 @@ class Solution:
         union_set = UnionSet(len(edges))
         critical = -1
         father_kept, father_removed = -1, -1
-        circle_father = -1
+        circle_father, circle_end = -1, -1
         for edge in edges:
             a, b = edge[0], edge[1]
             if union_set.find(a) == b:
                 if critical != -1:
                     break
                 else:
-                    circle_father = b
+                    circle_father, circle_end = b, a
             if union_set.find(b) != b:
                 critical = b
                 if circle_father != -1:
@@ -36,6 +36,8 @@ class Solution:
                 father_removed = a
             else:
                 union_set.add(a, b)
+        if critical == -1:
+            return [circle_end, circle_father]
         if union_set.find(father_removed) == critical:
             return [father_removed, critical]
         for edge in edges:
