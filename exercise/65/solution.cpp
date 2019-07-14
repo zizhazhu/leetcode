@@ -79,7 +79,7 @@ public:
                         return false;
             }
         }
-        if (state == 0 || state == 3 || state == 4 || state == 6 || state == 7)
+        if (state == 0 || state == 3 || state == 6 || state == 7)
             return false;
 
         return true;
