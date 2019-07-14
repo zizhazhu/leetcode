@@ -11,7 +11,7 @@ public:
                     if (s[i] == ' ') {
                         state = 0;
                     } else if (s[i] == '+' || s[i] == '-') {
-                        state = 1;
+                        state = 7;
                     } else if (isDigit(s[i])) {
                         state = 1;
                     } else if (s[i] == '.') {
@@ -63,19 +63,25 @@ public:
                         return false;
                     break;
                 case 6:
-                    // begin with a .
+                    // begin with a . or . after sign
                     if (isDigit(s[i]))
                         state = 2;
                     else
                         return false;
+                    break;
+                case 7:
+                    // begin with sign
+                    if (isDigit(s[i]))
+                        state = 1;
+                    else if (s[i] == '.')
+                        state = 6;
+                    else
+                        return false;
             }
         }
-        if (state == 0)
+        if (state == 0 || state == 4 || state == 6 || state == 7)
             return false;
-        if (state == 3)
-            return false;
-        if (state == 6)
-            return false;
+
         return true;
     }
 };
