@@ -45,6 +45,8 @@ public:
                 case 3:
                     if (isDigit(s[i]))
                         state = 4;
+                    else if (s[i] == '+' || s[i] == '-')
+                        state = 8;
                     else
                         return false;
                     break;
@@ -77,9 +79,16 @@ public:
                         state = 6;
                     else
                         return false;
+                    break;
+                case 8:
+                    // sign after e
+                    if (isDigit(s[i]))
+                        state = 4;
+                    else
+                        return false;
             }
         }
-        if (state == 0 || state == 3 || state == 6 || state == 7)
+        if (state == 0 || state == 3 || state == 6 || state == 7 || state == 8)
             return false;
 
         return true;
