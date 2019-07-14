@@ -15,7 +15,7 @@ public:
                     } else if (isDigit(s[i])) {
                         state = 1;
                     } else if (s[i] == '.') {
-                        state = 2;
+                        state = 6;
                     } else {
                         return false;
                     }
@@ -55,9 +55,17 @@ public:
                         state = 5;
                     else
                         return false;
+                    break;
                 case 5:
                     if (s[i] == ' ')
                         state = 5;
+                    else
+                        return false;
+                    break;
+                case 6:
+                    // begin with a .
+                    if (isDigit(s[i]))
+                        state = 2;
                     else
                         return false;
             }
@@ -65,6 +73,8 @@ public:
         if (state == 0)
             return false;
         if (state == 3)
+            return false;
+        if (state == 6)
             return false;
         return true;
     }
