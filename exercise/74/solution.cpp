@@ -14,7 +14,7 @@ public:
             return false;
         int left = 0, right = m * n;
         while (left < right) {
-            int mid = left + (right - left) >> 1;
+            int mid = left + ((right - left) >> 1);
             int x, y;
             noTo2D(mid, x, y);
             if (matrix[x][y] == target) {
