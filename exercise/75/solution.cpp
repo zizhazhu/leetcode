@@ -13,8 +13,9 @@ public:
         int zero_end = 0, one_end = 0;
         for (int i = 0; i < nums.size(); i++) {
             if (nums[i] == 0) {
-                swap(nums, zero_end, one_end);
                 swap(nums, zero_end, i);
+                if (zero_end != one_end)
+                    swap(nums, one_end, i);
                 zero_end++, one_end++;
             } else if (nums[i] == 1) {
                 swap(nums, one_end, i);
