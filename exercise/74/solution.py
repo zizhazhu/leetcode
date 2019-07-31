@@ -7,7 +7,7 @@ class Solution:
         if n == 0:
             return False
         left, right = 0, m
-        while left < right:
+        while left < right - 1:
             mid = left + (right - left) // 2
             if matrix[mid][0] == target:
                 return True
