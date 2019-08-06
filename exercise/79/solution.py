@@ -21,6 +21,8 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 if board[i][j] == word[0]:
+                    if len(word) == 1:
+                        return True
                     q.put(Node([(i, j)], (i, j)))
         while q.qsize() > 0:
             now = q.get()
