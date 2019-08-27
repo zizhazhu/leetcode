@@ -29,4 +29,4 @@ class Solution:
                 pre = pre.next
                 now = now.next
 
-        return pre.next
+        return before.next
