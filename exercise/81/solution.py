@@ -11,13 +11,13 @@ class Solution:
                 left += 1
             elif nums[mid] == nums[right]:
                 right -= 1
-            elif target < num[mid]:
-                if target >= nums[mid]:
+            elif target < nums[mid]:
+                if target >= nums[left]:
                     right = mid - 1
                 else:
                     left = mid + 1
             else:
-                if target >= nums[mid]:
+                if target >= nums[left]:
                     left = mid + 1
                 else:
                     right = mid - 1
