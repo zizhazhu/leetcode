@@ -25,6 +25,7 @@ public:
                 pre->next = second;
                 delete first;
                 first = pre->next;
+                dup = false;
             } else {
                 pre = first;
                 first = second;
