@@ -17,20 +17,14 @@ class ListNode:
 #         self.next = next
 class Solution:
     def reverse(self, head: ListNode) -> None:
-        if head is None:
-            return head
-        base = ListNode(-1, head)
-        last = head
-        while last.next is not None:
-            last = last.next
-        if last == head:
-            return last
-        while base.next != last:
-            t = base.next
-            base.next = t.next
-            t.next = last.next
-            last.next = t
-        return last
+        prev = None
+        now = head
+        while now is not None:
+            t = now.next
+            now.next = prev
+            prev = now
+            now = t
+        return prev
 
     def reorderList(self, head: ListNode) -> None:
         """
