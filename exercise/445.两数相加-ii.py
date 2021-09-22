@@ -29,28 +29,23 @@ class Solution:
 
         result = ListNode(-1)
         carry = 0
-        while l1_r and l2_r:
-            r = l1_r.val + l2_r.val + carry
+        while l1_r or l2_r:
+            if l1_r:
+                l1_v = l1_r.val
+                l1_r = l1_r.next
+            else:
+                l1_v = 0
+            if l2_r:
+                l2_v = l2_r.val
+                l2_r = l2_r.next
+            else:
+                l2_v = 0
+            r = l1_v + l2_v + carry
             if r >= 10:
                 carry = 1
                 r = r - 10
             else:
                 carry = 0
-            l1_r = l1_r.next
-            l2_r = l2_r.next
-            result.next = ListNode(r, result.next)
-        if l1_r:
-            left = l1_r
-        else:
-            left = l2_r
-        while left:
-            r = left.val + carry
-            if r >= 10:
-                carry = 1
-                r = r - 10
-            else:
-                carry = 0
-            left = left.next
             result.next = ListNode(r, result.next)
         if carry == 1:
             result.next = ListNode(1, result.next)
