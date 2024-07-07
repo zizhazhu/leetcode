@@ -1,2 +1,4 @@
 # ide
 .vscode/
+.idea/
+*.code-workspace
